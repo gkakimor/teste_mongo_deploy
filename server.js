@@ -1,14 +1,20 @@
+require ('dotenv').config();
+
 const mongoose = require('mongoose');
 (express = require('express')), (app = express());
 
 const port = process.env.PORT || 3000;
 
-mongoose.connect(
-  'mongodb+srv://newuser:123@cluster0.f9d6o.gcp.mongodb.net/Activitiess'
-);
+user = process.env.USERID;
+pw = process.env.PASSWORD;
 
+uri = `mongodb+srv://${user}:${pw}@cluster0.uywbrcb.mongodb.net/Tasks`
+
+console.log(uri);
+//mongoose.connect(uri);
+ 
 // Create a Schema object
-const activitySchema = new mongoose.Schema({
+/*const activitySchema = new mongoose.Schema({
   activity: { type: String, required: true },
 });
 
@@ -27,4 +33,4 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
-});
+});*/
